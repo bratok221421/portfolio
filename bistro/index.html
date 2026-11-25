@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бистро Крымская — доставка еды в Бахчисарае</title>
+<meta name="description" content="Домашняя кухня, мангал, пицца и фастфуд с доставкой по Бахчисараю. Ежедневно с 08:00 до 00:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0908; --bg2:#12100e; --card:#161311; --line:rgba(201,169,110,.22);
+  --gold:#c9a96e; --gold2:#e6cf9f; --text:#efe8dc; --muted:#a39a8b;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:.35s;border-bottom:1px solid transparent}
+header.solid{background:rgba(11,9,8,.88);backdrop-filter:blur(14px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-family:var(--serif);font-size:26px;letter-spacing:.32em;text-transform:uppercase;font-weight:500}
+.logo small{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.5em;color:var(--gold);margin-top:-2px;font-weight:400}
+.links{display:flex;gap:34px;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase}
+.links a{color:var(--muted);transition:.2s}.links a:hover{color:var(--gold2)}
+.cart-btn{display:flex;align-items:center;gap:10px;border:1px solid var(--gold);padding:10px 20px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;transition:.25s}
+.cart-btn:hover{background:var(--gold);color:#120e08}
+.cart-btn b{font-weight:600}
+@media(max-width:860px){.links{display:none}}
+
+/* hero */
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 70% 55% at 50% 38%,rgba(201,169,110,.13),transparent 70%),linear-gradient(#0b0908,#0b0908)}
+.hero::before{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(90deg,transparent 0 119px,rgba(201,169,110,.045) 119px 120px);mask-image:radial-gradient(circle at center,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(circle at center,#000 20%,transparent 75%)}
+.hero-in{position:relative;padding:130px 24px 90px}
+.eyebrow{font-size:12px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(54px,10vw,124px);line-height:.98;margin:26px 0 22px;letter-spacing:.02em}
+.hero h1 em{display:block;font-style:italic;color:var(--gold2);font-size:.62em;letter-spacing:.06em}
+.hero p{max-width:560px;margin:0 auto 42px;color:var(--muted);font-size:17px}
+.btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 38px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;border:1px solid var(--gold);transition:.25s;font-weight:500}
+.btn.fill{background:var(--gold);color:#120e08}.btn.fill:hover{background:var(--gold2)}
+.btn.ghost:hover{background:rgba(201,169,110,.12)}
+.facts{display:flex;justify-content:center;gap:clamp(20px,5vw,70px);margin-top:70px;flex-wrap:wrap}
+.fact{text-align:center}
+.fact b{display:block;font-family:var(--serif);font-size:34px;font-weight:500;color:var(--gold2);line-height:1.1}
+.fact span{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
+
+/* sections */
+section{padding:120px 0}
+.sec-head{text-align:center;margin-bottom:56px}
+.sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5.5vw,64px);line-height:1.1;margin-top:14px}
+.rule{width:64px;height:1px;background:var(--gold);margin:26px auto 0}
+
+/* menu */
+#menu{background:var(--bg2);border-block:1px solid var(--line)}
+.tabs-bar{position:sticky;top:76px;z-index:20;background:rgba(18,16,14,.94);backdrop-filter:blur(10px);border-block:1px solid var(--line);margin:0 -24px 52px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:14px 24px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:9px 20px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border:1px solid transparent;transition:.2s}
+.tab:hover{color:var(--gold2)}
+.tab.on{color:var(--gold2);border-color:var(--gold)}
+.cat{margin-bottom:72px}
+.cat-title{display:flex;align-items:baseline;gap:18px;margin-bottom:26px}
+.cat-title span{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:22px}
+.cat-title h3{font-family:var(--serif);font-weight:500;font-size:38px}
+.cat-title i{flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+.dish{background:var(--card);border:1px solid var(--line);padding:0;display:flex;flex-direction:column;min-height:190px;transition:.3s;position:relative;overflow:hidden}
+.pic{position:relative;height:190px;display:grid;place-items:center;color:var(--gold);background:radial-gradient(circle at 50% 45%,rgba(201,169,110,.2),transparent 68%),#1a1612;border-bottom:1px solid var(--line);overflow:hidden}
+.pic svg{width:78px;height:78px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;transition:.5s}
+.dish:hover .pic svg{transform:scale(1.12) rotate(-3deg)}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.dish:hover .pic img{transform:scale(1.06)}
+.dish-body{padding:26px 28px 28px;display:flex;flex-direction:column;justify-content:space-between;flex:1}
+.dish:hover{border-color:var(--gold);transform:translateY(-3px)}
+.dish h4{font-family:var(--serif);font-weight:500;font-size:27px;line-height:1.2}
+.dish p{color:var(--muted);font-size:14px;margin-top:8px}
+.dish-foot{display:flex;align-items:center;justify-content:space-between;margin-top:26px}
+.price{font-family:var(--serif);font-size:30px;color:var(--gold2);font-weight:500}
+.price small{font-size:18px}
+.unit{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-top:-4px}
+.tag{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#120e08;background:var(--gold);padding:3px 10px;margin-bottom:10px;font-weight:600}
+.add{border:1px solid var(--gold);width:44px;height:44px;font-size:22px;line-height:1;transition:.2s;color:var(--gold2)}
+.add:hover{background:var(--gold);color:#120e08}
+.qty{display:flex;align-items:center;border:1px solid var(--gold)}
+.qty button{width:40px;height:44px;font-size:20px;color:var(--gold2)}
+.qty button:hover{background:rgba(201,169,110,.15)}
+.qty span{min-width:30px;text-align:center;font-weight:500}
+.soon{border:1px dashed var(--line);padding:34px;text-align:center;color:var(--muted);font-family:var(--serif);font-style:italic;font-size:22px}
+.note{max-width:760px;margin:0 auto;text-align:center;color:var(--muted);font-size:13.5px;letter-spacing:.02em;border:1px solid var(--line);padding:18px 24px}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5vw,60px);line-height:1.1;margin:14px 0 26px}
+.about p{color:var(--muted);margin-bottom:18px;font-size:16.5px}
+.about blockquote{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.35;color:var(--gold2);border-left:1px solid var(--gold);padding-left:26px;margin-top:30px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--bg);padding:42px 26px;text-align:center}
+.stat b{display:block;font-family:var(--serif);font-size:54px;font-weight:400;color:var(--gold2);line-height:1}
+.stat span{display:block;margin-top:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:860px){.about{grid-template-columns:1fr;gap:50px}}
+
+/* delivery */
+#delivery{background:var(--bg2);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.step{border:1px solid var(--line);padding:38px 30px;background:var(--card)}
+.step em{font-family:var(--serif);font-size:46px;color:var(--gold);font-style:italic;line-height:1}
+.step h4{font-family:var(--serif);font-weight:500;font-size:25px;margin:14px 0 8px}
+.step p{color:var(--muted);font-size:14.5px}
+
+/* contacts */
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.loc{border:1px solid var(--line);padding:42px 34px;background:var(--card)}
+.loc h4{font-family:var(--serif);font-weight:500;font-size:32px;margin-bottom:6px}
+.loc .addr{color:var(--gold);font-size:12px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:22px}
+.loc a{display:block;font-size:19px;padding:5px 0;color:var(--text);transition:.2s;font-weight:400}
+.loc a:hover{color:var(--gold2)}
+.hours{text-align:center;margin-top:44px;color:var(--muted)}
+.hours b{color:var(--gold2);font-family:var(--serif);font-weight:500;font-size:28px;display:block}
+
+footer{border-top:1px solid var(--line);padding:38px 0;text-align:center;font-size:12px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+
+/* cart drawer */
+.veil{position:fixed;inset:0;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:.3s;z-index:90}
+.veil.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(470px,100%);background:#100d0b;border-left:1px solid var(--line);z-index:100;transform:translateX(100%);transition:.4s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.d-head{display:flex;justify-content:space-between;align-items:center;padding:26px 28px;border-bottom:1px solid var(--line)}
+.d-head h3{font-family:var(--serif);font-weight:500;font-size:32px}
+.x{font-size:28px;color:var(--muted);width:40px;height:40px}.x:hover{color:var(--gold2)}
+.d-body{flex:1;overflow-y:auto;padding:8px 28px 28px}
+.empty{text-align:center;color:var(--muted);padding:70px 0;font-family:var(--serif);font-style:italic;font-size:23px}
+.row{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.row h5{font-family:var(--serif);font-weight:500;font-size:21px;line-height:1.2}
+.row small{color:var(--muted)}
+.row .qty button{height:36px;width:34px}
+.row .qty span{min-width:26px;font-size:14px}
+.sum{display:flex;justify-content:space-between;padding:20px 0 8px;font-family:var(--serif);font-size:28px}
+.sum b{color:var(--gold2);font-weight:500}
+.tiny{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:18px}
+form{display:grid;gap:12px;margin-top:14px}
+input,textarea,select{width:100%;background:transparent;border:1px solid var(--line);color:var(--text);padding:14px 16px;font:inherit;font-size:14.5px;outline:0;transition:.2s}
+input:focus,textarea:focus,select:focus{border-color:var(--gold)}
+select option{background:#100d0b}
+textarea{resize:vertical;min-height:70px}
+form .btn{width:100%;text-align:center;margin-top:6px}
+.done{display:none;border:1px solid var(--gold);padding:22px;margin-top:16px;font-size:14px;color:var(--gold2)}
+.done pre{white-space:pre-wrap;font:inherit;color:var(--text);margin:10px 0 14px;max-height:180px;overflow:auto;font-size:13px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s}
+.reveal.in{opacity:1;transform:none}
+
+/* nav extras + info modal */
+.nav-r{display:flex;align-items:center;gap:14px}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);flex-direction:column;justify-content:center;align-items:center;gap:5px}
+.burger i{display:block;width:20px;height:1.5px;background:var(--gold2);transition:.3s}
+.burger.on i:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger.on i:nth-child(2){opacity:0}
+.burger.on i:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media(max-width:860px){
+  .burger{display:flex}
+  .links{display:none;position:absolute;top:76px;left:0;right:0;flex-direction:column;gap:0;background:rgba(11,9,8,.97);border-bottom:1px solid var(--line);padding:8px 24px 18px}
+  .links.open{display:flex}
+  .links a{padding:16px 0;border-bottom:1px solid var(--line);font-size:13px}
+  header:has(.links.open){background:rgba(11,9,8,.97)}
+}
+.modal{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:.3s}
+.modal.on{opacity:1;pointer-events:auto}
+.m-card{width:min(720px,100%);max-height:88vh;overflow-y:auto;background:#100d0b;border:1px solid var(--gold);padding:46px 44px 40px;position:relative;transform:translateY(20px);transition:.4s cubic-bezier(.2,.8,.2,1)}
+.modal.on .m-card{transform:none}
+.m-x{position:absolute;top:14px;right:14px;font-size:30px;color:var(--muted);width:44px;height:44px}.m-x:hover{color:var(--gold2)}
+.m-card h3{font-family:var(--serif);font-weight:400;font-size:clamp(34px,5vw,46px);line-height:1.1;margin:10px 0 22px}
+.m-card p{color:var(--muted);margin-bottom:16px;font-size:15.5px}
+.m-card blockquote{font-family:var(--serif);font-style:italic;font-size:23px;line-height:1.35;color:var(--gold2);border-left:1px solid var(--gold);padding-left:22px;margin:24px 0}
+.m-list{display:grid;gap:0;margin:8px 0 22px}
+.m-list div{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.m-list div span{color:var(--muted)}
+.m-list div b{font-weight:400;color:var(--text);text-align:right}
+.m-sub{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:26px 0 6px}
+.m-phones a{display:block;font-size:20px;padding:6px 0;font-weight:400;color:var(--text)}.m-phones a:hover{color:var(--gold2)}
+.m-warn{border:1px solid var(--line);padding:14px 18px;font-size:13.5px;color:var(--muted);margin:6px 0 20px}
+.m-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.m-actions .btn{padding:14px 28px}
+@media(max-width:560px){.m-card{padding:40px 24px 28px}.m-list div{flex-direction:column;gap:2px}.m-list div b{text-align:left}}
+.big-phone{font-family:var(--serif);font-size:clamp(34px,7vw,52px);color:var(--gold2);line-height:1.1;margin:4px 0 6px;letter-spacing:.01em}
+.m-numrow{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:18px}
+.m-numrow button{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);padding:8px 14px;transition:.2s;white-space:nowrap}
+.m-numrow button:hover{border-color:var(--gold);color:var(--gold2)}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="logo">Бистро<small>Крымская</small></a>
+    <nav class="links" id="navLinks">
+      <a href="#menu" data-open="menu">Меню</a><a href="#about" data-open="about">О нас</a><a href="#delivery" data-open="delivery">Доставка</a><a href="#contacts" data-open="contacts">Контакты</a>
+    </nav>
+    <div class="nav-r">
+      <button class="cart-btn" id="openCart">Корзина <b id="cnt">0</b></button>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="hero-in">
+    <div class="eyebrow">Бахчисарай · Доставка и кафе</div>
+    <h1>Бистро<em>Крымская</em></h1>
+    <p>Домашняя кухня, мангал, пицца и фастфуд. Готовим каждый день с утра до полуночи и привозим горячим.</p>
+    <div class="btns">
+      <a href="#menu" class="btn fill">Смотреть меню</a>
+      <a href="#" class="btn ghost" data-open="call">Позвонить</a>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>08:00 — 00:00</b><span>Ежедневно</span></div>
+      <div class="fact"><b>~40 мин</b><span>Ожидание заказа</span></div>
+      <div class="fact"><b>2</b><span>Заведения в городе</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Наша кухня</div>
+      <h2>Меню</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tabs-bar"><div class="tabs" id="tabs"></div></div>
+    <div id="menuList"></div>
+    <div class="note reveal">Гастроёмкость — 20 ₽ за штуку, не включена в сумму заказа и оплачивается дополнительно.</div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="reveal">
+      <div class="eyebrow">О нас</div>
+      <h2>Большая команда, один вкус</h2>
+      <p>«Бистро» — это команда, которая принимает, готовит и доставляет ваши заказы: от первых блюд до мангала и свежей выпечки.</p>
+      <p>Основатель с большим опытом работы в ресторанах и кафе европейской и восточной кухни, а также в фастфуде, сегодня радует вас вкуснейшей едой в собственных заведениях.</p>
+      <blockquote>Приходите к нам — помимо привычных блюд, у нас можно попробовать фирменные.</blockquote>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b>100+</b><span>Блюд в меню</span></div>
+      <div class="stat"><b>16</b><span>Часов работы</span></div>
+      <div class="stat"><b>2</b><span>Адреса</span></div>
+      <div class="stat"><b>365</b><span>Дней в году</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="delivery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Как мы привозим</div>
+      <h2>Доставка</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><em>I</em><h4>Выберите блюда</h4><p>Соберите заказ в корзине или позвоните нам — оператор примет заказ по телефону.</p></div>
+      <div class="step reveal"><em>II</em><h4>Мы готовим</h4><p>Свежие блюда готовятся после заказа. Среднее время ожидания — около 40 минут.</p></div>
+      <div class="step reveal"><em>III</em><h4>Курьер в пути</h4><p>Доставляем по Бахчисараю. По району — с оплатой бензина.</p></div>
+      <div class="step reveal"><em>IV</em><h4>Удобная оплата</h4><p>Наличными или картой — как вам удобнее.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Свяжитесь с нами</div>
+      <h2>Контакты</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="contacts">
+      <div class="loc reveal">
+        <h4>Крымская, 2</h4><div class="addr">Бахчисарай</div>
+        <a href="tel:+79785283570">+7 (978) 528-35-70</a>
+        <a href="tel:+79787131414">+7 (978) 713-14-14</a>
+        <a href="tel:+79787121414">+7 (978) 712-14-14</a>
+        <a href="tel:+79787131616">+7 (978) 713-16-16</a>
+        <a href="tel:+79787121616">+7 (978) 712-16-16</a>
+      </div>
+      <div class="loc reveal">
+        <h4>Кооперативная, 8</h4><div class="addr">Бахчисарай</div>
+        <a href="tel:+79782965409">+7 (978) 296-54-09</a>
+        <a href="tel:+79782258848">+7 (978) 225-88-48</a>
+        <a href="tel:+79181929174">+7 (918) 192-91-74</a>
+        <a href="tel:+79782010866">+7 (978) 201-08-66</a>
+      </div>
+      <div class="loc reveal">
+        <h4>Администратор</h4><div class="addr">Вопросы и пожелания</div>
+        <a href="tel:+79787600446">+7 (978) 760-04-46</a>
+      </div>
+    </div>
+    <div class="hours reveal"><b>Ежедневно с 08:00 до 00:00</b>Принимаем заказы на доставку и ждём вас в кафе</div>
+  </div>
+</section>
+</main>
+
+<footer>© Бистро · Бахчисарай</footer>
+
+<div class="veil" id="veil"></div>
+<aside class="drawer" id="drawer" aria-label="Корзина">
+  <div class="d-head"><h3>Ваш заказ</h3><button class="x" id="closeCart" aria-label="Закрыть">×</button></div>
+  <div class="d-body">
+    <div id="cartList"></div>
+    <div id="checkout" style="display:none">
+      <div class="sum"><span>Итого</span><b id="total">0 ₽</b></div>
+      <p class="tiny">Гастроёмкость — 20 ₽ за штуку, не входит в сумму и оплачивается дополнительно.</p>
+      <form id="form">
+        <input name="name" placeholder="Ваше имя" required>
+        <input name="phone" type="tel" placeholder="Телефон" required>
+        <input name="addr" placeholder="Адрес доставки" required>
+        <textarea name="comment" placeholder="Комментарий к заказу"></textarea>
+        <select name="pay"><option>Наличными при получении</option><option>Картой при получении</option><option>QR-кодом при получении</option></select>
+        <input name="promo" placeholder="Промокод">
+        <button class="btn fill" type="submit">Оформить заказ</button>
+      </form>
+      <div class="done" id="done">
+        Заказ сформирован. Скопируйте его и отправьте оператору или позвоните — мы подтвердим заказ.
+        <pre id="orderText"></pre>
+        <div class="btns" style="justify-content:flex-start">
+          <button class="btn ghost" id="copyBtn" type="button" style="padding:12px 22px">Скопировать</button>
+          <a class="btn fill" href="#" data-open="call" style="padding:12px 22px">Позвонить</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="m-card">
+    <button class="m-x" id="mClose" aria-label="Закрыть">×</button>
+    <div class="eyebrow" id="mEyebrow"></div>
+    <h3 id="mTitle"></h3>
+    <div id="mBody"></div>
+  </div>
+</div>
+
+<script>
+/* ============ МЕНЮ ============
+   Чтобы добавить блюдо — допишите строку в items нужной категории:
+   { n: 'Название', p: 300, d: 'Описание / граммовка (необязательно)' }  */
+const MENU = [
+  { id:"soups", t:"Супы", items:[
+    {n:"Борщ красный",p:200,img:"https://static.tildacdn.com/stor6265-6632-4663-b564-333861306538/90945968.jpg"},
+    {n:"Суп куриный с лапшой",p:250,img:"https://static.tildacdn.com/stor6666-3237-4365-a261-336133313633/85714027.jpg"},
+    {n:"Щи",p:250,img:"https://static.tildacdn.com/stor3138-3533-4362-b066-616135383730/15009469.jpg"},
+    {n:"Шурпа",p:250,img:"https://static.tildacdn.com/stor6362-3531-4630-a666-313362396565/29728994.jpg"},
+    {n:"Лагман",p:250,img:"https://static.tildacdn.com/stor3961-3836-4234-a537-616338376333/74316626.jpg"}
+  ] },
+  { id:"mains", t:"Вторые блюда", items:[
+    {n:"Тефтели куриные",p:200,img:"https://static.tildacdn.com/stor3039-3863-4162-b566-313837306365/78081721.jpg"},
+    {n:"Биточки куриные",p:200,img:"https://static.tildacdn.com/stor6564-6634-4636-a562-626437383631/19631026.jpg"},
+    {n:"Отбивная куриная",p:200,img:"https://static.tildacdn.com/stor6361-3166-4838-b962-643737656262/98337042.jpg"},
+    {n:"Говядина в собственном соку",p:200},
+    {n:"Куриные сердечки в собственном соку",p:200,img:"https://static.tildacdn.com/stor6363-3962-4563-a164-336237326163/14771893.jpg"},
+    {n:"Куриное филе с грибами в сливочном соусе",p:200,img:"https://static.tildacdn.com/stor3336-6434-4561-a362-303165396430/68744241.jpg"},
+    {n:"Сарма из капустных листьев",p:250,img:"https://static.tildacdn.com/stor3531-3862-4565-b035-306637643434/50165287.jpg"},
+    {n:"Плов",p:250,img:"https://static.tildacdn.com/stor3062-3237-4466-b632-393432613563/46265662.jpg"},
+    {n:"Курица жареная",p:200,img:"https://static.tildacdn.com/stor3034-6135-4165-b161-656334663461/15202141.jpg"},
+    {n:"Леля на пару",p:200,img:"https://static.tildacdn.com/stor6632-3436-4535-b534-303166336263/85030335.jpg"},
+    {n:"Леля на шпажках",p:200,img:"https://static.tildacdn.com/stor6465-6533-4861-a432-393561626231/e62bd73bba2c3cb3178d82128cc7d9f0.png"},
+    {n:"Горячая сковородка с курицей",p:250,img:"https://static.tildacdn.com/stor3637-3631-4662-a432-323861616265/96940770.jpg"},
+    {n:"Бурма с тыквой",p:200,img:"https://static.tildacdn.com/stor6434-6362-4935-b362-336665396661/96227183.jpg"},
+    {n:"Ханум",p:200,img:"https://static.tildacdn.com/stor6265-3465-4135-b631-653734663464/64414276.jpg"}
+  ] },
+  { id:"sides", t:"Гарниры", items:[
+    {n:"Макароны",p:100,img:"https://static.tildacdn.com/stor3336-3633-4637-a439-353431336237/83000057.jpg"},
+    {n:"Гречка",p:100,img:"https://static.tildacdn.com/stor3662-6430-4366-b036-633137666161/62086237.jpg"},
+    {n:"Капуста тушёная",p:100,img:"https://static.tildacdn.com/stor6661-3966-4330-a136-316633306135/37646457.jpg"},
+    {n:"Пюре",p:100,img:"https://static.tildacdn.com/stor3334-6363-4662-b665-326464316266/67797157.jpg"},
+    {n:"Рис отварной",p:100,img:"https://static.tildacdn.com/stor3839-6337-4364-b263-626237383539/48016869.jpg"},
+    {n:"Картофель отварной",p:100,img:"https://static.tildacdn.com/stor6362-3361-4131-b434-333862656331/65118566.jpg"}
+  ] },
+  { id:"salads", t:"Салаты", items:[
+    {n:"Крабовый",p:120,img:"https://static.tildacdn.com/stor6465-3830-4962-b639-333165396334/65934758.jpg"},
+    {n:"Салат из редиски",p:100,img:"https://static.tildacdn.com/stor3965-3630-4539-a361-623334616235/31984171.jpg"},
+    {n:"Салат мясной",p:150,img:"https://static.tildacdn.com/stor3737-6537-4530-b834-373434323465/89071094.jpg"},
+    {n:"Морковча",p:100,img:"https://static.tildacdn.com/stor6439-6533-4363-b735-653136333366/12978395.jpg"},
+    {n:"Капустный",p:100,img:"https://static.tildacdn.com/stor3037-6530-4364-b361-366462656439/96904063.jpg"},
+    {n:"Оливье",p:100,img:"https://static.tildacdn.com/stor3561-3262-4331-a565-316337356631/56880301.jpg"},
+    {n:"Винегрет",p:100,img:"https://static.tildacdn.com/stor6238-3435-4766-b239-313666313634/97130268.jpg"},
+    {n:"Свекольный",p:100,img:"https://static.tildacdn.com/stor3830-3063-4363-a237-623132346162/95216305.jpg"},
+    {n:"Соленья",p:100,img:"https://static.tildacdn.com/stor3330-6435-4336-a132-393261316563/24030289.jpg"},
+    {n:"Салат мясной с майонезом",p:150,img:"https://static.tildacdn.com/stor3230-3831-4137-b734-643662323864/62645507.jpg"},
+    {n:"Редька",p:100,img:"https://static.tildacdn.com/stor6535-3133-4136-b366-646338313064/998a6c5d1eab7e9fd6c1d6009fb7d2b3.jpg"}
+  ] },
+  { id:"fast", t:"Фастфуд", items:[
+    {n:"Шаурма",p:300,img:"https://static.tildacdn.com/stor3731-3930-4037-a136-323731656430/25345088.png"},
+    {n:"Донер",p:300,img:"https://static.tildacdn.com/stor3831-3663-4437-b166-353465383436/56991597.jpg"},
+    {n:"Бургер",p:300,img:"https://static.tildacdn.com/stor6637-3866-4763-a338-323430343537/91740920.png"},
+    {n:"Бургер мини",p:220,img:"https://static.tildacdn.com/stor6637-3866-4763-a338-323430343537/91740920.png"},
+    {n:"Бургер двойной",p:450,img:"https://static.tildacdn.com/stor6637-3866-4763-a338-323430343537/91740920.png"},
+    {n:"Хот-дог",p:300,img:"https://static.tildacdn.com/stor6666-6664-4237-a238-613563393463/18210170.png"},
+    {n:"Донер бокс",p:450,img:"https://static.tildacdn.com/stor6464-6663-4265-b331-363636303364/82355370.jpg"},
+    {n:"Картошка фри",p:180,img:"https://static.tildacdn.com/stor3761-6266-4039-b437-623139336239/76258833.png"},
+    {n:"Картошка по-селянски",p:180,img:"https://static.tildacdn.com/stor3239-6166-4437-a433-306466633534/23358769.png"},
+    {n:"Сырные палочки",p:60,img:"https://static.tildacdn.com/stor6236-3464-4963-a539-643534386539/52103402.png",d:"Цена за 1 штуку, минимальный заказ — 5 шт.",u:"за шт."},
+    {n:"Шаурма овощная",p:200,img:"https://static.tildacdn.com/stor3333-3837-4635-b531-646362636331/37444586.jpg"}
+  ] },
+  { id:"pizza", t:"Пицца", items:[
+    {n:"4 Сезона",p:300,img:"https://static.tildacdn.com/stor6534-3935-4236-b534-643362623335/72344906.jpg",d:"Тесто, соус, моцарелла, салями, охотничьи колбаски, ветчина, куриное филе, маслины (черри), пармезан, зелень",tag:"Новинка осеннего сезона"},
+    {n:"Бистро",p:300,img:"https://static.tildacdn.com/stor3530-3839-4030-b830-626238626139/96949874.jpg",d:"Тесто, соус, моцарелла, салями, пармезан",tag:"Новинка осеннего сезона"},
+    {n:"Маринара",p:300,img:"https://static.tildacdn.com/stor6538-6562-4966-a537-303830616539/92433195.jpg",d:"Тесто, соус, моцарелла, ветчина, пармезан, помидор",tag:"Новинка осеннего сезона"},
+    {n:"Фонтина",p:300,img:"https://static.tildacdn.com/stor6565-3564-4939-b161-666131353666/95395036.jpg",d:"Тесто, сыр, тимьян, орегано",tag:"Новинка осеннего сезона"},
+    {n:"Маргарита",p:530,img:"https://static.tildacdn.com/stor3864-3430-4631-b666-616162643934/19407451.jpg",d:"Тесто, соус, моцарелла, помидор, базилик, пармезан, орегано"},
+    {n:"Вегетарианская",p:530,img:"https://static.tildacdn.com/stor6264-3935-4535-a338-393830633938/56885378.jpg",d:"Тесто, соус, моцарелла, шампиньоны, болгарский перец, кукуруза, пармезан, орегано, кунжут, зелень, помидор"},
+    {n:"4 сыра",p:600,img:"https://static.tildacdn.com/stor3130-3738-4663-a530-363866623531/80415486.jpg",d:"Тесто, сливочный соус, моцарелла, дор блю, чеддер, пармезан, тимьян"},
+    {n:"Пепперони",p:600,img:"https://static.tildacdn.com/stor3138-3137-4536-b538-616134386362/14151781.jpg",d:"Тесто, соус, моцарелла, салями, орегано, руккола"},
+    {n:"Мексиканская",p:600,img:"https://static.tildacdn.com/stor6164-3663-4430-b936-383038313335/59280324.jpg",d:"Тесто, соус, моцарелла, салями, ветчина, болгарский перец, лук ялтинский, перец халапеньо, зелень, орегано"},
+    {n:"4 мяса",p:600,img:"https://static.tildacdn.com/stor6138-6564-4865-a232-396265333335/28826197.jpg",d:"Тесто, соус, салями, охотничьи колбаски, ветчина, куриное филе гриль, пармезан, маслины"},
+    {n:"Прошутто",p:600,img:"https://static.tildacdn.com/stor6633-6361-4665-b535-306138333234/57230943.png",d:"Тесто, соус, моцарелла, ветчина, помидоры, пармезан, зелень, орегано"},
+    {n:"Охотничья",p:600,img:"https://static.tildacdn.com/stor3736-3935-4434-b961-333536636566/59508987.png",d:"Тесто, соус, моцарелла, охотничьи колбаски, оливки, лук ялтинский, зелень, пармезан"},
+    {n:"Дьябло",p:600,img:"https://static.tildacdn.com/stor6166-3233-4330-a664-626463643463/63066972.png",d:"Тесто, соус, моцарелла, салями острая, халапеньо, зелень, пармезан, орегано"},
+    {n:"Монтарелла",p:600,img:"https://static.tildacdn.com/stor3366-3562-4133-b063-316465346138/22879154.jpg",d:"Тесто, сливочный соус, моцарелла, лисички, мышата, рядовка, опята, болгарский перец, пармезан, зелёный лук, грибная приправа"},
+    {n:"Посейдон",p:700,img:"https://static.tildacdn.com/stor6565-6531-4632-b438-323263313434/78233916.jpg",d:"Тесто, сливочный соус, мидии, креветки, кальмары, оливки, лимон, пармезан, зелень, орегано"},
+    {n:"Хачапури по-аджарски",p:530,img:"https://static.tildacdn.com/stor3165-6565-4664-b034-663936376561/43178633.jpg",d:"Тесто, сулугуни, брынза, яйцо"},
+    {n:"Хачапури по-мегрельски",p:530,img:"https://static.tildacdn.com/stor3632-3830-4637-a239-616435643466/58773736.jpg",d:"Тесто, сулугуни, брынза"},
+    {n:"Хачапури по-царски",p:550,img:"https://static.tildacdn.com/stor3534-3332-4763-b435-393562386264/51062990.jpg",d:"Тесто, фарш, сулугуни, кинза"},
+    {n:"Пиде",p:550,img:"https://static.tildacdn.com/stor3835-3664-4238-b231-616564653938/14638736.jpg",d:"Тесто, фарш, моцарелла, помидор, кинза"},
+    {n:"Сырный бортик",p:120,img:"https://static.tildacdn.com/stor3231-6133-4434-a536-346466343464/78449809.jpg"},
+    {n:"Добавка к пицце",p:110,img:"https://static.tildacdn.com/stor6362-6533-4434-a336-393738326331/20427311.jpg"}
+  ] },
+  { id:"grill", t:"Мангал", items:[
+    {n:"Стейк",p:150,img:"https://static.tildacdn.com/stor3866-3461-4665-a333-643532326636/d44c4b3b1ec994e547671bb64503a134.jpg",d:"Цена за 100 г в сыром виде. Итоговая цена зависит от веса",u:"за 100 г"},
+    {n:"Картошка на мангале",p:150,img:"https://static.tildacdn.com/stor3633-6430-4538-a665-663162353534/c515a9f65513d3940a797f505cdc931e.jpg",d:"Цена за порцию",u:"за порцию"},
+    {n:"Люля-кебаб",p:250,img:"https://static.tildacdn.com/stor3033-3834-4830-b463-636232353334/39833523.png",d:"Порция 100 г",u:"за порцию"},
+    {n:"Шашлык из говядины",p:250,img:"https://static.tildacdn.com/stor6436-3935-4266-b138-616238303361/41335132.png",d:"Порция 100 г",u:"за порцию"},
+    {n:"Шашлык из курицы",p:250,img:"https://static.tildacdn.com/stor3864-3265-4437-b137-333930383933/98133135.png",d:"Порция 100 г",u:"за порцию"},
+    {n:"Шашлык из баранины",p:280,img:"https://static.tildacdn.com/stor6436-3935-4266-b138-616238303361/41335132.png",d:"Порция 100 г",u:"за порцию"},
+    {n:"Семга на мангале",p:250,img:"https://static.tildacdn.com/stor3930-3538-4930-b336-613434333535/57475881.png",d:"Цена за 100 г в сыром виде. Итоговая цена зависит от веса",u:"за 100 г"},
+    {n:"Перепёлка",p:150,img:"https://static.tildacdn.com/stor3635-3931-4134-b961-313661303165/23975913.jpg",d:"Цена за 100 г в сыром виде. Итоговая цена зависит от веса",u:"за 100 г"},
+    {n:"Овощи на мангале",p:200,img:"https://static.tildacdn.com/stor6232-3033-4230-a433-646361323632/22334287.jpg",d:"Цена за порцию",u:"за порцию"},
+    {n:"Антрекот «Чалагъач»",p:250,img:"https://static.tildacdn.com/stor3834-6166-4531-b863-663631636232/bbd6a74903b704f4f6742c20ec1e660b.webp",d:"Цена за 100 г в сыром виде. Итоговая цена зависит от веса",u:"за 100 г"},
+    {n:"Шашлык по-хански",p:350,img:"https://static.tildacdn.com/stor3636-6164-4637-b538-386634353138/99930988.jpg"},
+    {n:"Грибы на мангале",p:200,img:"https://static.tildacdn.com/stor3434-3737-4536-b963-313739356438/31870005.jpg",d:"Цена за порцию",u:"за порцию"},
+    {n:"Шашлык из куриных сердечек",p:230,img:"https://static.tildacdn.com/stor6638-3831-4435-b730-363837376530/56828944.jpg",d:"1 порция — 150 г",u:"за порцию"},
+    {n:"Бараньи рёбра на мангале",p:150,img:"https://static.tildacdn.com/stor3433-3237-4364-b862-623535623430/2c58ba74a874a3b40f3652f14e33930f.webp",d:"Цена за 100 г в сыром виде. Итоговая цена зависит от веса",u:"за 100 г"},
+    {n:"Сарма кебаб",p:300,img:"https://static.tildacdn.com/stor3939-6533-4663-b436-663531306533/84658868.jpg",d:"Порция 100 г",u:"за порцию"},
+    {n:"Дорадо",p:250,img:"https://static.tildacdn.com/stor3039-3837-4831-a666-656563366332/19462594.jpg",d:"Цена за 100 г в сыром виде. Итоговая цена зависит от веса",u:"за 100 г"},
+    {n:"Форель радужная",p:200,img:"https://static.tildacdn.com/stor3964-3033-4332-b261-396534303438/c427a6569ef68109c754c18b5cc27ad3.webp",d:"Цена за 100 г в сыром виде. Итоговая цена зависит от веса",u:"за 100 г"}
+  ] },
+  { id:"dessert", t:"Десерты", items:[
+    {n:"Кюнефе",p:390,img:"https://static.tildacdn.com/stor6636-6134-4166-b030-333464376237/37380337.jpg"},
+    {n:"Шоколадный фондан",p:240,img:"https://static.tildacdn.com/stor6332-3538-4931-b639-333936333936/22186075.jpg"},
+    {n:"Чиа пудинг",p:200,img:"https://static.tildacdn.com/stor3339-3666-4962-b736-353631313739/b704e4eac540f5fb102d0bdb49a0774d.jpg"},
+    {n:"Медовик",p:240,img:"https://static.tildacdn.com/stor6661-6435-4263-b839-336164613563/274e156698556b1e8ce4a4479e56e1e2.jpg"},
+    {n:"Творожно-ягодный пирог",p:240,img:"https://static.tildacdn.com/stor3862-6132-4534-a563-383435633736/72569620.jpg"},
+    {n:"Абрикосовая нежность",p:240,img:"https://static.tildacdn.com/stor6536-6664-4161-a365-643439343938/73977883.jpg"},
+    {n:"Тирамису",p:240,img:"https://static.tildacdn.com/stor6362-6234-4661-b939-363066626339/80219666.jpg"},
+    {n:"Цветаевский пирог",p:240,img:"https://static.tildacdn.com/stor6434-6433-4434-b736-336464316437/94243684.jpg"},
+    {n:"Сникерс",p:260,img:"https://static.tildacdn.com/stor6162-3766-4134-b231-663139643930/78932277.jpg"},
+    {n:"Молочная девочка",p:240,img:"https://static.tildacdn.com/stor6533-6438-4166-b734-646639666632/97225095.jpg"},
+    {n:"Трайфл",p:240,img:"https://static.tildacdn.com/stor6564-6362-4566-b964-633534363939/19658174.jpg"}
+  ] },
+  { id:"bakery", t:"Мучные изделия", items:[
+    {n:"Лепёшка домашняя",p:40,img:"https://static.tildacdn.com/stor3064-3030-4131-a536-303539636134/73977684.jpg"},
+    {n:"Лепёшка тандырная",p:80,img:"https://static.tildacdn.com/stor3666-3832-4435-a431-316134633033/28371289.jpg"},
+    {n:"Хлеб",p:5,img:"https://static.tildacdn.com/stor3361-6235-4664-b235-343132336431/86453679.jpg"},
+    {n:"Самса слоёная",p:200,img:"https://static.tildacdn.com/stor6334-3339-4163-b265-643838633562/60781422.jpg"}
+  ] },
+  { id:"frozen", t:"Полуфабрикаты", items:[
+    {n:"Пельмени заморозка",p:600,img:"https://static.tildacdn.com/stor3836-3463-4033-a664-633437626631/74566374.jpg"},
+    {n:"Вареники заморозка",p:470,img:"https://static.tildacdn.com/stor6532-3566-4834-b463-323135366635/14910726.jpg"},
+    {n:"Манты заморозка",p:600,img:"https://static.tildacdn.com/stor3663-6564-4461-a534-393538376564/31522201.jpg"},
+    {n:"Юфах аш заморозка",p:850,img:"https://static.tildacdn.com/stor3836-3463-4033-a664-633437626631/74566374.jpg"}
+  ] },
+  { id:"drinks", t:"Напитки", empty:"Список напитков уточняйте у оператора по телефону", items:[
+    
+  ] }
+];
+
+/* Иллюстрации категорий. Чтобы поставить реальное фото блюда — добавьте img:'photos/name.jpg' в строку блюда */
+const svg = b => `<svg viewBox="0 0 64 64" aria-hidden="true">${b}</svg>`;
+const ICON = {
+  soups:  svg('<path d="M8 30h48c0 12-10 22-24 22S8 42 8 30z"/><path d="M22 57h20"/><path d="M24 12c-4 4 4 6 0 10M34 9c-4 4 4 7 0 13M44 12c-4 4 4 6 0 10"/>'),
+  mains:  svg('<circle cx="34" cy="34" r="17"/><circle cx="34" cy="34" r="10"/><path d="M6 12v14M10 12v14M14 12v14M6 26h8M10 26v28M58 12c-5 4-5 14 0 18v24"/>'),
+  sides:  svg('<path d="M10 38h44c0 10-9 17-22 17S10 48 10 38z"/><path d="M16 38c0-12 8-19 16-19s16 7 16 19"/><path d="M26 28c2 2 4 2 6 0"/>'),
+  salads: svg('<path d="M10 36h44c0 11-9 19-22 19S10 47 10 36z"/><path d="M18 36c-2-9 5-15 12-15M30 36c-1-11 6-18 15-18M44 36c5-4 5-9 3-14"/><circle cx="24" cy="30" r="2"/><circle cx="40" cy="30" r="2"/>'),
+  fast:   svg('<path d="M10 28c0-12 10-18 22-18s22 6 22 18z"/><path d="M8 35h48"/><path d="M10 41c4 4 8 4 11 0s7-4 11 0 7 4 11 0 8-4 11 0"/><path d="M10 47h44c0 6-4 9-8 9H18c-4 0-8-3-8-9z"/><path d="M24 19h2M34 16h2M42 20h2"/>'),
+  pizza:  svg('<path d="M6 16c17-9 35-9 52 0L32 60z"/><path d="M10 22c14-6 30-6 44 0"/><circle cx="27" cy="31" r="4"/><circle cx="39" cy="29" r="4"/><circle cx="32" cy="43" r="4"/>'),
+  grill:  svg('<g transform="rotate(-45 32 32)"><path d="M2 32h60"/><rect x="12" y="24" width="11" height="16" rx="4"/><rect x="26" y="24" width="11" height="16" rx="4"/><rect x="40" y="24" width="11" height="16" rx="4"/></g><path d="M8 56c4-3 8-3 12 0M20 58c4-3 8-3 12 0"/>'),
+  dessert:svg('<path d="M14 30h36l-4 25H18z"/><path d="M12 30c0-10 8-14 20-14s20 4 20 14"/><path d="M24 30l2 25M32 30v25M40 30l-2 25"/><circle cx="32" cy="11" r="3.5"/><path d="M32 7.5c1-3 4-4 6-4"/>'),
+  frozen: svg('<path d="M7 42c0-15 11-24 25-24s25 9 25 24c-8 7-42 7-50 0z"/><path d="M19 24l2 9M28 20v10M37 20v10M45 24l-2 9"/>'),
+  bakery: svg('<path d="M8 32c0-11 11-18 24-18s24 7 24 18c0 3-1 5-4 6v16H12V38c-3-1-4-3-4-6z"/><path d="M22 24l6 11M32 22l6 11M42 24l5 10"/>'),
+  drinks: svg('<path d="M15 14h34l-4 42H19z"/><path d="M17 28h30"/><path d="M38 4l4 24"/><circle cx="29" cy="40" r="3"/><circle cx="37" cy="46" r="2.5"/>')
+};
+
+const $ = s => document.querySelector(s);
+const roman = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI'];
+const cart = {};              // key -> {n,p,q}
+const fmt = v => v.toLocaleString('ru-RU') + ' ₽';
+const key = (c,i) => c + ':' + i;
+
+/* render menu */
+$('#tabs').innerHTML = MENU.map((c,i)=>`<a class="tab${i?'':' on'}" href="#c-${c.id}">${c.t}</a>`).join('');
+$('#menuList').innerHTML = MENU.map((c,ci)=>`
+  <div class="cat reveal" id="c-${c.id}">
+    <div class="cat-title"><span>${roman[ci]}</span><h3>${c.t}</h3><i></i></div>
+    ${c.items.length ? `<div class="grid">${c.items.map((it,ii)=>`
+      <div class="dish">
+        <div class="pic">${ICON[c.id]}${it.img?`<img src="${it.img}" alt="${it.n}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:''}</div>
+        <div class="dish-body">
+          <div>${it.tag?`<span class="tag">${it.tag}</span>`:''}<h4>${it.n}</h4>${it.d?`<p>${it.d}</p>`:''}</div>
+          <div class="dish-foot"><div class="price">${it.p}<small> ₽</small>${it.u?`<span class="unit">${it.u}</span>`:''}</div><div data-ctl="${key(c.id,ii)}"></div></div>
+        </div>
+      </div>`).join('')}</div>` : `<div class="soon">${c.empty||'Позиции этого раздела скоро появятся'}</div>`}
+  </div>`).join('');
+
+const lookup = k => { const [c,i]=k.split(':'); const it=MENU.find(m=>m.id===c).items[+i]; return it; };
+
+function paintCtl(){
+  document.querySelectorAll('[data-ctl]').forEach(el=>{
+    const k=el.dataset.ctl, q=cart[k]?.q||0;
+    el.innerHTML = q
+      ? `<div class="qty"><button data-m="${k}">−</button><span>${q}</span><button data-p="${k}">+</button></div>`
+      : `<button class="add" data-p="${k}" aria-label="Добавить">+</button>`;
+  });
+}
+function paintCart(){
+  const ks=Object.keys(cart).filter(k=>cart[k].q>0);
+  const count=ks.reduce((s,k)=>s+cart[k].q,0), sum=ks.reduce((s,k)=>s+cart[k].q*cart[k].p,0);
+  $('#cnt').textContent=count;
+  $('#cartList').innerHTML = ks.length ? ks.map(k=>`
+    <div class="row"><div><h5>${cart[k].n}</h5><small>${fmt(cart[k].p)}</small></div>
+    <div class="qty"><button data-m="${k}">−</button><span>${cart[k].q}</span><button data-p="${k}">+</button></div></div>`).join('')
+    : `<div class="empty">Корзина пуста</div>`;
+  $('#checkout').style.display = ks.length ? 'block':'none';
+  $('#total').textContent = fmt(sum);
+  paintCtl();
+}
+document.addEventListener('click',e=>{
+  const p=e.target.closest('[data-p]'), m=e.target.closest('[data-m]');
+  if(p){const k=p.dataset.p; const it=lookup(k); cart[k]=cart[k]||{n:it.n,p:it.p,q:0}; cart[k].q++; paintCart(); $('#done').style.display='none';}
+  if(m){const k=m.dataset.m; if(cart[k]){cart[k].q--; if(cart[k].q<=0) delete cart[k];} paintCart();}
+});
+
+/* drawer */
+const open = v => { $('#drawer').classList.toggle('on',v); $('#veil').classList.toggle('on',v); document.body.style.overflow=v?'hidden':''; };
+$('#openCart').onclick=()=>open(true); $('#closeCart').onclick=()=>open(false); $('#veil').onclick=()=>open(false);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')open(false)});
+
+/* order → text for operator (no backend) */
+$('#form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=Object.fromEntries(new FormData(e.target));
+  const ks=Object.keys(cart);
+  const lines=ks.map(k=>`• ${cart[k].n} × ${cart[k].q} — ${fmt(cart[k].q*cart[k].p)}`);
+  const sum=ks.reduce((s,k)=>s+cart[k].q*cart[k].p,0);
+  const txt=`Заказ — Бистро Крымская\n${lines.join('\n')}\nИтого: ${fmt(sum)} (+ гастроёмкость 20 ₽/шт)\n\nИмя: ${f.name}\nТелефон: ${f.phone}\nАдрес: ${f.addr}\nОплата: ${f.pay}${f.promo?'\nПромокод: '+f.promo:''}${f.comment?'\nКомментарий: '+f.comment:''}`;
+  $('#orderText').textContent=txt; $('#done').style.display='block';
+});
+$('#copyBtn').onclick=async()=>{ try{await navigator.clipboard.writeText($('#orderText').textContent); $('#copyBtn').textContent='Скопировано';}catch{} };
+
+/* header, tabs highlight, reveal */
+addEventListener('scroll',()=>$('#hdr').classList.toggle('solid',scrollY>40),{passive:true});
+const tabEls=[...document.querySelectorAll('.tab')];
+const catObs=new IntersectionObserver(es=>es.forEach(en=>{
+  if(en.isIntersecting){tabEls.forEach(t=>t.classList.toggle('on',t.getAttribute('href')==='#'+en.target.id));
+    const on=document.querySelector('.tab.on'); on&&on.scrollIntoView({inline:'center',block:'nearest'});}
+}),{rootMargin:'-30% 0px -60% 0px'});
+document.querySelectorAll('.cat').forEach(c=>catObs.observe(c));
+const rv=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');rv.unobserve(en.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>rv.observe(el));
+paintCart();
+
+/* ============ Информационные окна и навигация ============ */
+const INFO = {
+  about: { e:'Бистро Крымская', t:'О нас', h:`
+    <p><b style="color:var(--gold2);font-weight:500">«Бистро»</b> — это большая команда, которая принимает, готовит и доставляет ваши заказы.</p>
+    <p>Основатель с большим опытом работы в ресторанах и кафе европейской и восточной кухни, а также в сфере фастфуда, спустя время радует вас вкуснейшей едой уже в собственном заведении.</p>
+    <blockquote>Приглашаем вас посетить наше кафе: помимо еды, только у нас можно попробовать фирменные блюда.</blockquote>
+    <div class="m-sub">Мы находимся в Бахчисарае</div>
+    <div class="m-list"><div><span>Заведение 1</span><b>ул. Крымская, 2</b></div><div><span>Заведение 2</span><b>ул. Кооперативная, 8</b></div><div><span>Работаем</span><b>ежедневно, 08:00 — 00:00</b></div></div>
+    <div class="m-actions"><a class="btn fill" href="#menu" data-close>Смотреть меню</a><a class="btn ghost" href="#contacts" data-open="contacts">Контакты</a></div>`},
+  delivery: { e:'Как мы привозим', t:'Доставка', h:`
+    <div class="m-list">
+      <div><span>Зона доставки</span><b>Бахчисарай и Бахчисарайский район</b></div>
+      <div><span>Время работы</span><b>ежедневно, 08:00 — 00:00</b></div>
+      <div><span>Время ожидания</span><b>около 40 минут</b></div>
+      <div><span>Доставка по району</span><b>оплачивается бензин</b></div>
+      <div><span>Оплата</span><b>наличными, QR-кодом или картой при получении</b></div>
+    </div>
+    <div class="m-warn">Гастроёмкость — 20 ₽ за штуку. Она не входит в сумму заказа и оплачивается дополнительно.</div>
+    <div class="m-warn">Оплата картой может быть временно недоступна из-за проблем с мобильной связью. Условия доставки уточняйте у оператора.</div>
+    <div class="m-sub">Как заказать</div>
+    <p>Добавьте блюда в корзину на сайте и оформите заказ либо позвоните нам — оператор примет заказ по телефону.</p>
+    <div class="m-actions"><a class="btn fill" href="#menu" data-close>Выбрать блюда</a><a class="btn ghost" href="#" data-open="call">Позвонить</a></div>`},
+  call: { e:'Звоните — мы на связи', t:'Позвонить нам', h:`
+    <p>Назовите оператору блюда и адрес — заказ примем по телефону. Работаем ежедневно с 08:00 до 00:00.</p>
+    <div class="m-sub">Основной номер · Крымская, 2</div>
+    <div class="big-phone">+7 (978) 528-35-70</div>
+    <div class="m-actions" style="margin-top:14px"><button class="btn fill" data-copy="+7 (978) 528-35-70" type="button">Скопировать номер</button><a class="btn ghost" href="tel:+79785283570">Набрать с телефона</a></div>
+    <div class="m-sub">Другие номера · Крымская, 2</div>
+    <div class="m-numrow"><span>+7 (978) 713-14-14</span><button data-copy="+7 (978) 713-14-14" type="button">Копировать</button></div><div class="m-numrow"><span>+7 (978) 712-14-14</span><button data-copy="+7 (978) 712-14-14" type="button">Копировать</button></div><div class="m-numrow"><span>+7 (978) 713-16-16</span><button data-copy="+7 (978) 713-16-16" type="button">Копировать</button></div><div class="m-numrow"><span>+7 (978) 712-16-16</span><button data-copy="+7 (978) 712-16-16" type="button">Копировать</button></div>
+    <div class="m-sub">Кооперативная, 8</div>
+    <div class="m-numrow"><span>+7 (978) 296-54-09</span><button data-copy="+7 (978) 296-54-09" type="button">Копировать</button></div><div class="m-numrow"><span>+7 (978) 225-88-48</span><button data-copy="+7 (978) 225-88-48" type="button">Копировать</button></div><div class="m-numrow"><span>+7 (918) 192-91-74</span><button data-copy="+7 (918) 192-91-74" type="button">Копировать</button></div><div class="m-numrow"><span>+7 (978) 201-08-66</span><button data-copy="+7 (978) 201-08-66" type="button">Копировать</button></div>
+    <div class="m-sub">Администратор</div>
+    <div class="m-numrow"><span>+7 (978) 760-04-46</span><button data-copy="+7 (978) 760-04-46" type="button">Копировать</button></div>`},
+  contacts: { e:'Свяжитесь с нами', t:'Контакты', h:`
+    <div class="m-sub" style="margin-top:0">Крымская, 2 · Бахчисарай</div>
+    <div class="m-phones"><a href="tel:+79785283570">+7 (978) 528-35-70</a><a href="tel:+79787131414">+7 (978) 713-14-14</a><a href="tel:+79787121414">+7 (978) 712-14-14</a><a href="tel:+79787131616">+7 (978) 713-16-16</a><a href="tel:+79787121616">+7 (978) 712-16-16</a></div>
+    <div class="m-sub">Кооперативная, 8 · Бахчисарай</div>
+    <div class="m-phones"><a href="tel:+79782965409">+7 (978) 296-54-09</a><a href="tel:+79782258848">+7 (978) 225-88-48</a><a href="tel:+79181929174">+7 (918) 192-91-74</a><a href="tel:+79782010866">+7 (978) 201-08-66</a></div>
+    <div class="m-sub">Администратор</div>
+    <div class="m-phones"><a href="tel:+79787600446">+7 (978) 760-04-46</a></div>
+    <div class="m-list" style="margin-top:22px"><div><span>Время работы</span><b>ежедневно, 08:00 — 00:00</b></div><div><span>Оплата</span><b>на сайте либо через курьера</b></div></div>`}
+};
+const modal = $('#modal');
+function openInfo(k){
+  const d = INFO[k]; if(!d) return;
+  $('#mEyebrow').textContent = d.e; $('#mTitle').textContent = d.t; $('#mBody').innerHTML = d.h;
+  modal.classList.add('on'); document.body.style.overflow='hidden';
+  modal.querySelector('.m-card').scrollTop = 0;
+}
+function closeInfo(){ modal.classList.remove('on'); if(!$('#drawer').classList.contains('on')) document.body.style.overflow=''; }
+function goTo(sel){
+  const t = document.querySelector(sel); if(!t) return;
+  t.scrollIntoView({behavior:'smooth', block:'start'});
+}
+function closeNav(){ $('#navLinks').classList.remove('open'); $('#burger').classList.remove('on'); $('#burger').setAttribute('aria-expanded','false'); }
+$('#burger').onclick = () => { const o = $('#navLinks').classList.toggle('open'); $('#burger').classList.toggle('on',o); $('#burger').setAttribute('aria-expanded',o); };
+$('#mClose').onclick = closeInfo;
+modal.addEventListener('click', e => { if(e.target === modal) closeInfo(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeInfo(); });
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"], [data-open]'); if(!a) return;
+  const k = a.dataset.open;
+  if(k && INFO[k]){ e.preventDefault(); closeNav(); openInfo(k); return; }
+  const href = a.getAttribute('href');
+  if(href && href.length > 1){
+    e.preventDefault(); closeNav();
+    if(a.hasAttribute('data-close') || modal.classList.contains('on')){ closeInfo(); setTimeout(()=>goTo(href), 60); }
+    else goTo(href);
+  }
+});
+
+document.addEventListener('click', async e => {
+  const b = e.target.closest('[data-copy]'); if(!b) return;
+  const val = b.dataset.copy, label = b.textContent;
+  let ok = false;
+  try { await navigator.clipboard.writeText(val); ok = true; }
+  catch(_) {
+    try { const t = document.createElement('textarea'); t.value = val; t.style.cssText='position:fixed;opacity:0'; document.body.appendChild(t); t.select(); ok = document.execCommand('copy'); t.remove(); } catch(__) {}
+  }
+  b.textContent = ok ? 'Скопировано ✓' : val;
+  setTimeout(() => { b.textContent = label; }, 1800);
+});
+</script>
+</body>
+</html>
